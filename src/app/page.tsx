@@ -1,13 +1,14 @@
-"use client";
-import Dummy from "@/components/Dummy";
+import React from "react";
 import LoginForm from "@/components/LoginForm";
-import { BrowserRouter as Router } from "react-router-dom";
+import ImageUpload from "@/components/ImageUpload";
 
-export default function Home() {
+const page = () => {
   return (
-    <Router>
-      {/* <Dummy /> */}
+    <>
       <LoginForm />
-    </Router>
+      <ImageUpload />
+    </>
   );
-}
+};
+
+export default page;
