@@ -6,6 +6,7 @@
 
 body {
   font-family: "Poppins", serif;
+  background-color: #FAFAFF;
 }
 
 .inter {
@@ -14,5 +15,5 @@ body {
 
 input{
     box-shadow: 0px 1px 2px 0px #1018280D;
-    border: 1px solid #D0D5DD
+ 
 }

@@ -9,9 +9,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        'custom-black': '#2E2F37',
-        'custom-gray': '#656566',
-        'off-white':'#FAFAFF'
+        "custom-black": "#2E2F37",
+        "custom-gray": "#656566",
+        "custom-white": "#D0D5DD",
+        "light-gray": "#656566",
+        "custom-blue": "#007BFF",
+        "very-light-gray": "#475467",
+        "deep-black": "#14191C",
       },
     },
   },
