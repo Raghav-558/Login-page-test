@@ -33,7 +33,7 @@ const Dashboard = () => {
   return (
     <div className="flex min-h-screen w-full md:pl-[300px] relative">
       <div
-        className={`flex flex-col py-10 px-5 bg-black z-10 text-white w-[300px] fixed top-0 left-0 min-h-screen justify-between max-md:w-full transition-all duration-300 ${
+        className={`flex flex-col py-10 px-5 bg-gray-600 z-10 text-white w-[300px] fixed top-0 left-0 min-h-screen justify-between max-md:w-full transition-all duration-300 ${
           open === true ? "max-md:left-0" : "max-md:-left-full"
         }`}
       >
@@ -55,16 +55,16 @@ const Dashboard = () => {
         </div>
         <button
           onClick={handleLogout}
-          className="bg-red-500 py-2 px-3 rounded-lg text-white"
+          className="bg-red-500 py-2 px-3 rounded-lg text-white hover:bg-red-800 transition-all duration-300"
         >
           Logout
         </button>
       </div>
       <div className="w-full pt-20">
-        <div className="bg-gray-800 max-md:flex max-md:items-center max-md:gap-5 min-h-20 py-5 px-3 w-full fixed top-0 z-">
+        <div className="bg-gray-800 max-md:flex max-md:items-center max-md:gap-5 min-h-20 py-5 px-3 w-full fixed top-0 z-20">
           <button
             onClick={handleOpen}
-            className="md:hidden max-md:size-6 relative !z-50 max-md:flex max-md:justify-between max-md:flex-col overflow-hidden"
+            className="md:hidden max-md:size-6 relative !z-60 max-md:flex max-md:justify-between max-md:flex-col overflow-hidden"
           >
             <span
               className={`flex w-6 h-0.5 transition-all duration-300 bg-white ${
@@ -86,13 +86,7 @@ const Dashboard = () => {
             Welcome to Dashboard
           </h1>
         </div>
-        {page === "button-1" ? (
-          <QuestionOne />
-        ) : page === "button-2" ? (
-          <Calendly />
-        ) : page === "button-3" ? (
-          <ImageUpload />
-        ) : null}
+        {page === "button-1" ? (<QuestionOne />) : page === "button-2" ? ( <Calendly />) : page === "button-3" ? (<ImageUpload />) : null}
       </div>
     </div>
   );
