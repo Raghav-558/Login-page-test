@@ -3,7 +3,7 @@ import { GoogleIcon } from "@/utils/icons";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation"; 
 
 const LoginForm = () => {
   const router = useRouter();
@@ -52,7 +52,7 @@ const LoginForm = () => {
   return (
     <div className="py-[30px] max-lg:pt-8">
       <div className="max-w-[1597px] mx-auto lg:px-[27px] max-lg:px-[35px]">
-        <div className="flex justify-end lg:gap-[120px] flex-wrap max-lg:justify-center">
+        <div className="flex justify-end lg:gap-[120px] flex-wrap max-2xl:justify-center ">
           <div className="lg:pt-5">
             <Image
               src="/assets/images/page-logo.webp"

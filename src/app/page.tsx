@@ -1,12 +1,10 @@
 import React from "react";
-import LoginForm from "@/components/LoginForm";
-import ImageUpload from "@/components/ImageUpload";
+import LoginForm from "@/components/home/LoginForm";
 
 const page = () => {
   return (
     <>
       <LoginForm />
-      <ImageUpload />
     </>
   );
 };

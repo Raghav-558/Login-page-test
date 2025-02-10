@@ -1,7 +1,7 @@
-"use client";
-import { useState, useEffect } from "react";
+'use client'
+import React, { useEffect, useState } from "react";
 
-const Page = () => {
+const Calendly = () => {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
@@ -17,17 +17,16 @@ const Page = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-      <h1 className="text-3xl font-bold text-gray-800 mb-4">Search Page</h1>
-      <p className="text-xl text-gray-600 mb-8">
+    <div className="flex flex-col items-center justify-center py-10 px-4">
+      <p className="text-xl mb-8">
         Search term: <span className="font-semibold">{search}</span>
       </p>
       <div
         className="calendly-inline-widget w-full sm:w-[500px] h-[650px] border rounded-lg shadow-lg"
-        data-url="https://calendly.com/montyits71/new-meeting?text_color=ffffff&primary_color=140202"
+        data-url="https://calendly.com/jangraraghav9211/new-meeting"
       ></div>
     </div>
   );
 };
 
-export default Page;
+export default Calendly;
