@@ -17,6 +17,11 @@ export default {
         "very-light-gray": "#475467",
         "deep-black": "#14191C",
       },
+      screens: {
+        xlg: "1050px",
+        lg: "1025px",
+        md: "770px",
+      },
     },
   },
   plugins: [],
