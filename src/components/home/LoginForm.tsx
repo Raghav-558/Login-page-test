@@ -3,7 +3,7 @@ import { GoogleIcon } from "@/utils/icons";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation"; 
+import { useRouter } from "next/navigation";
 
 const LoginForm = () => {
   const router = useRouter();
@@ -44,7 +44,7 @@ const LoginForm = () => {
       setError("You must agree to remember for 30 days");
       return;
     }
-
+    
     localStorage.setItem("isAuthenticated", "true");
     router.push("/dashboard");
   };

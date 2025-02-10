@@ -14,9 +14,9 @@ const QuestionOne = () => {
     },
   ];
   return (
-    <div className="p-10">
-      <p className="text-lg font-semibold"> Q1 .{Question[0].list.data[0].title}</p>
-      <p className="font-medium">Ans : {Question[0].list.data[0].options[0]}</p>
+    <div className="flex items-center justify-center py-20 text-center flex-col">
+      <p className="text-xl font-semibold">{Question[0].list.data[0].title}</p>
+      <p className="text-xl font-semibold">{Question[0].list.data[0].options[0]}</p>
     </div>
   );
 };
