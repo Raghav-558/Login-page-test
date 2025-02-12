@@ -30,11 +30,13 @@ const LoginForm = () => {
     setError(true);
     setCheckboxError(!formData.checkbox);
 
+    // Check for valid email, password, and checkbox validation
     if (
-      (formData.email && emailSyntax.test(formData.email)) ||
-      (!emailSyntax && formData.password.length >= 6)
+      emailSyntax.test(formData.email) && // Valid email
+      formData.password.length >= 6 && // Password length must be at least 6 characters
+      formData.checkbox // Checkbox must be checked
     ) {
-      setFormData(form);
+      setFormData(form); // Reset form
       setError(false);
       setCheckboxError(false);
       localStorage.setItem("isAuthenticated", "true");
