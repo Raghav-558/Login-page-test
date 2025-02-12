@@ -20,7 +20,7 @@ export default {
       screens: {
         xlg: "1050px",
         lg: "1025px",
-        md: "770px",
+        md: "768px",
       },
     },
   },

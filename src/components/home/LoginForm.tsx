@@ -23,15 +23,20 @@ const LoginForm = () => {
     e.preventDefault();
     setError("");
 
-    const emailSyntax = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailSyntax = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-    if (!email || !password) {
+    if (!email && !password) {
       setError("Email and password are required");
       return;
     }
 
     if (!emailSyntax.test(email)) {
       setError("Invalid email format");
+      return;
+    }
+    
+    if (password.length === 0) {
+      setError("password is required");
       return;
     }
 
@@ -44,13 +49,13 @@ const LoginForm = () => {
       setError("You must agree to remember for 30 days");
       return;
     }
-    
+
     localStorage.setItem("isAuthenticated", "true");
     router.push("/dashboard");
   };
 
   return (
-    <div className="py-[30px] max-lg:pt-8">
+    <div className="py-[30px] max-lg:pt-8 max-lg:pb-[96px] min-h-max">
       <div className="max-w-[1597px] mx-auto lg:px-[27px] max-lg:px-[35px]">
         <div className="flex justify-end lg:gap-[120px] flex-wrap max-2xl:justify-center ">
           <div className="lg:pt-5">
@@ -61,7 +66,7 @@ const LoginForm = () => {
               height={61.71}
               className="pointer-events-none pb-[138.9px] max-md:pb-[90px]"
             />
-            <form onSubmit={handleSubmit} className="max-w-[456px]">
+            <form onSubmit={handleSubmit} noValidate className="max-w-[456px]">
               <h2 className="font-semibold text-3xl leading-[58.45px] text-custom-black">
                 Welcome Back
               </h2>
@@ -130,10 +135,10 @@ const LoginForm = () => {
               >
                 Sign In
               </button>
-              <button className="pt-[11px] pb-3 bg-white w-full mt-[6px] rounded-[9px] border border-custom-white flex items-center gap-[10px] justify-center">
+              <div className="pt-[11px] pb-3 cursor-pointer bg-white w-full mt-[6px] rounded-[9px] border border-custom-white flex items-center gap-[10px] justify-center hover:bg-gray-200 transition-all duration-300">
                 <GoogleIcon />
                 <p>Sign in with Google</p>
-              </button>
+              </div>
               <p className="inter leading-6 text-base md:text-center pt-[18px] text-very-light-gray">
                 Don’t have an account?{" "}
                 <Link href="/" className="text-custom-blue">
@@ -147,7 +152,7 @@ const LoginForm = () => {
             alt=""
             width={759}
             height={899}
-            className="pointer-events-none max-lg:pt-[98px]"
+            className="pointer-events-none max-lg:hidden"
           />
         </div>
       </div>

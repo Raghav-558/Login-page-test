@@ -1,72 +1,63 @@
 "use client";
-import { useState } from "react";
+import React, { useState } from "react";
 
-const ImageUpload = () => {
-  const [uploadImgs, setUploadImgs] = useState<string[]>([]);
+const UploadImage = () => {
+  const [image, setImage] = useState<string[]>([]);
 
-  const handlerChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) {
-      const newImages = Array.from(e.target.files).map((file) =>
-        URL.createObjectURL(file)
-      );
-      setUploadImgs((prevImgs) => [...prevImgs, ...newImages]);
+  const uploadImage = (e: any) => {
+    const file = e.target.files[0];
+    if (file && file.type.startsWith("image/")) {
+      const url = URL.createObjectURL(file);
+      setImage([...image, url]);
+    } else {
+      alert("Please upload a valid image file.");
     }
   };
 
-  const removeHandler = () => {
-    setUploadImgs([]);
-    const fileInput = document.getElementById("upload") as HTMLInputElement;
-    if (fileInput) fileInput.value = "";
-  };
-
-
   return (
-    <div className="min-h-screen flex justify-center items-center px-4">
-      <div className="bg-white p-8 rounded-xl shadow-lg w-full max-w-lg">
-        <h2 className="text-2xl font-semibold text-center text-custom-gray pb-6">
-          Upload Images
+    <div className="py-20">
+      <div className="flex items-center justify-center flex-col">
+        <h2 className="pb-5 text-2xl font-inter font-semibold">
+          Add Your image
         </h2>
-
-        <div className="relative">
-          <input
-            type="file"
-            id="upload"
-            hidden
-            multiple
-            onChange={(e) => handlerChange(e)}
-          />
-          <label
-            htmlFor="upload"
-            className="border border-black p-3 border-dotted rounded-lg flex justify-center"
-          >
-            <span className="text-lg">Upload</span>
-          </label>
-
-          {uploadImgs.length > 0 && (
-            <div className="mt-6 grid grid-cols-2 gap-4">
-              {uploadImgs.map((item, i) => (
-                <div key={i} className="relative group">
-                  <img
-                    className="w-full h-32 object-cover rounded-md"
-                    src={item}
-                    alt="Uploaded image"
-                  />
-                </div>
-              ))}
-            </div>
-          )}
-          {uploadImgs.length > 0 && (
-            <button
-              onClick={removeHandler}
-              className="bg-red-500 text-white mt-6 w-full py-2.5 rounded-lg font-semibold hover:bg-red-600 transition-all duration-300"
-            >
-              Remove All Images
-            </button>
-          )}
+        <input onChange={uploadImage} hidden type="file" id="connect" />
+        <label
+          htmlFor="connect"
+          className="bg-custom-blue py-[10px] px-[20px] rounded text-white cursor-pointer"
+        >
+          {" "}
+          Add Image{" "}
+        </label>
+        <div className="flex gap-5 flex-wrap items-center my-5">
+          {image.map((item: string, index: number) => {
+            return (
+              <div
+                className="overflow-hidden max-w-[500px] w-full justify-center"
+                key={index}
+              >
+                <img
+                  className="w-full object-cover"
+                  src={item}
+                  alt="uploads-images"
+                />
+              </div>
+            );
+          })}
         </div>
+        {image.length === 0 ? (
+          <p>No data found</p>
+        ) : (
+          <button
+            onClick={() => setImage([])}
+            className="bg-red-500 py-[10px] px-[20px] rounded text-white cursor-pointer"
+          >
+            {" "}
+            Delete All
+          </button>
+        )}
       </div>
     </div>
   );
 };
 
-export default ImageUpload;
+export default UploadImage;
